@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="AllSongs" table="ALL_SONGS">
+      <meta attribute="class-description">
+         This class contains the employee detail. 
+      </meta>
+      <id name="song_id" type="int" column="SONG_ID">
+         <generator class="native"/>
+      </id>
+      <property name="SongArtist" column="SONG_ARTIST" type="string"/>
+      <property name="ThumbsUpCount" column="THUMBS_UP_COUNT" type="int"/>
+      <property name="ThumbsDownCount" column="THUMBS_DOWN_COUNT" type="int"/>
+      <property name="SongPath" column="SONG_PATH" type="string"/>
+      <property name="InPlaylist" column="IN_PLAYLIST" type="boolean"/>
+   </class>
+</hibernate-mapping>
