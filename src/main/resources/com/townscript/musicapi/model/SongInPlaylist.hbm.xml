@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="Playlist" table="PLAYLIST">
+      <meta attribute="class-description">
+         This class contains the details of songs in playlist. 
+      </meta>
+      <id name="playlist_id" type="int" column="PLAYLIST_ID">
+         <generator class="native"/>
+      </id>
+      <property name="SongId" column="SONG_ID" type="int"/>
+      <property name="UserId" column="USER_ID" type="int"/>
+      <property name="BeingPlayed" column="BEING_PLAYED" type="boolean"/>
+   </class>
+</hibernate-mapping>
