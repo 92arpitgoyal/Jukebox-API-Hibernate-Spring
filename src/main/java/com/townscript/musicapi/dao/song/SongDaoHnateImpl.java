@@ -37,7 +37,12 @@ public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
 
 	@Override
 	public void downVoteSong(int songId) {
-		// TODO Auto-generated method stub
+		String hql = "UPDATE" + Song.class.getName() + "set downVoteSong = downVoteSong + 1 "  + 
+	             "WHERE songId = :songid";
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("songid", songId);
+		query.executeUpdate();
 		
 	}
 
