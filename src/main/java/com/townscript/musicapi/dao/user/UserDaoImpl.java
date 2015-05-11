@@ -76,9 +76,9 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean isAuthenticUser(String userEmail, String UserPassword) {
+	public boolean isAuthenticUser(String userEmail, String userPassword) {
 		String sql = "SELECT * FROM USERS " +
-				"WHERE USER_EMAIL = '"+ userEmail+"' AND USER_PASSWORD = '"+ UserPassword + "'";
+				"WHERE USER_EMAIL = '"+ userEmail+"' AND USER_PASSWORD = '"+ userPassword + "'";
 		 
 		JdbcTemplate jdbcTemplate = JdbcTemplateFactory.getJdbcTemplate();
 

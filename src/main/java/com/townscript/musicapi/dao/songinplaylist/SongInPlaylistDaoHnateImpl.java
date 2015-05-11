@@ -1,5 +1,22 @@
 package com.townscript.musicapi.dao.songinplaylist;
 
-public class SongInPlaylistDaoHnateImpl {
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import com.townscript.musicapi.model.SongInPlaylist;
+
+public class SongInPlaylistDaoHnateImpl extends HibernateDaoSupport implements SongInPlaylistDao{
+
+	@Override
+	public int addToPlaylist(int songId, int userId) {
+		SongInPlaylist songInPlaylist = new SongInPlaylist();
+		
+		songInPlaylist.setId(0);
+		songInPlaylist.setSongId(songId);
+		songInPlaylist.setUserId(userId);
+		songInPlaylist.setBeingPlayed(false);
+		
+		getHibernateTemplate().save(songInPlaylist);
+		return songInPlaylist.getId();
+	}
 
 }

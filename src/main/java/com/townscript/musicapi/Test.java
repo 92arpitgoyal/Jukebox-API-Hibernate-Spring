@@ -1,5 +1,7 @@
 package com.townscript.musicapi;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.townscript.musicapi.dao.song.SongDao;
 import com.townscript.musicapi.dao.song.SongDaoHnateImpl;
 import com.townscript.musicapi.dao.user.UserDao;
@@ -15,11 +17,18 @@ public class Test {
 		user.setPassword("qwerty1234");
 		UserDao dao = new UserDaoImpl();
 		dao.addUser(user);*/
+        
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/townscript/musicapi/main-beans.xml");
+        
+        SongDao songDao = context.getBean(SongDao.class);
+        
 		Song song = new Song();
 		song.setTitle("dil chahta hain");
 		song.setArtist("amir khan");
 		song.setPath("/var/www/html/bollywood/");
-		SongDao songDao = new SongDaoHnateImpl();
+		
+		//SongDao songDao = new SongDaoHnateImpl();
+		
 		songDao.addToAllSongs(song);
 		
 	}
