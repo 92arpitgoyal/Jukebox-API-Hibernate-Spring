@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -23,8 +24,23 @@ import com.townscript.musicapi.service.song.SongServiceImpl;
 
 public class SongServiceTest {
 	
-	private SongService songService = new SongServiceImpl();
+	public SongServiceTest(){
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/townscript/musicapi/test-beans.xml");
+		songService = context.getBean(SongService.class);
+	}
 	
+	private SongService songService;
+	
+	
+	
+	public SongService getSongService() {
+		return songService;
+	}
+
+	public void setSongService(SongService songService) {
+		this.songService = songService;
+	}
+
 	@Before
 	public void createEnvironMent()
 	{

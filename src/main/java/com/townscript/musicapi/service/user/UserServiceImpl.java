@@ -1,12 +1,27 @@
 package com.townscript.musicapi.service.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.townscript.musicapi.dao.user.UserDao;
-import com.townscript.musicapi.dao.user.UserDaoImpl;
+//import com.townscript.musicapi.dao.user.UserDaoHnateImpl;
+//import com.townscript.musicapi.dao.user.UserDaoImpl;
 import com.townscript.musicapi.model.User;
 
 public class UserServiceImpl implements UserService {
 
-	UserDao userDao = new UserDaoImpl();
+	//private UserDao userDao = new UserDaoImpl();
+	@Autowired
+	private UserDao userDao;
+	
+	
+	public UserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
 	@Override
 	public int newUser(User user) {
 		return userDao.addUser(user);
