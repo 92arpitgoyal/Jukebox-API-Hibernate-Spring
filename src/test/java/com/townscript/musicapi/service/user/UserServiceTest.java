@@ -10,18 +10,25 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.townscript.musicapi.dao.JdbcTemplateFactory;
 import com.townscript.musicapi.model.User;
 import com.townscript.musicapi.model.UserRowMapper;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/com/townscript/musicapi/test-beans.xml")
 public class UserServiceTest {
 	
-	UserService userService = new UserServiceImpl();
+	@Autowired
+	private UserService userService;
 	
 	@Before
 	public void createEnvironMent()
@@ -54,6 +61,7 @@ public class UserServiceTest {
 		user.setEmail("rameshwalia@ts.com");
 		
 		int userId = userService.newUser(user);
+		
 		String sql = "SELECT * FROM USERS WHERE USER_ID = " + userId;
 		
 		JdbcTemplate jdbcTemplate = JdbcTemplateFactory.getJdbcTemplate();

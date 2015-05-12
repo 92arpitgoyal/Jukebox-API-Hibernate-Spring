@@ -10,11 +10,15 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.townscript.musicapi.dao.JdbcTemplateFactory;
 import com.townscript.musicapi.model.Song;
@@ -22,13 +26,16 @@ import com.townscript.musicapi.model.SongRowMapper;
 import com.townscript.musicapi.service.song.SongService;
 import com.townscript.musicapi.service.song.SongServiceImpl;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/com/townscript/musicapi/test-beans.xml")
 public class SongServiceTest {
 	
-	public SongServiceTest(){
+/*	public SongServiceTest(){
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/townscript/musicapi/test-beans.xml");
 		songService = context.getBean(SongService.class);
-	}
+	}*/
 	
+	@Autowired
 	private SongService songService;
 	
 	

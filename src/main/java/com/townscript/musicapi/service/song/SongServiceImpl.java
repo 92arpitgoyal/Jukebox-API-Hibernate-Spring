@@ -13,7 +13,7 @@ import com.townscript.musicapi.dao.songinplaylist.SongInPlaylistDao;
 import com.townscript.musicapi.model.Song;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class SongServiceImpl implements SongService {
 
 	//private SongDao songDao = new SongDaoImpl();

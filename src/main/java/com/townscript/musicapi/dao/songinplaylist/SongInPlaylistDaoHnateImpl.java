@@ -1,9 +1,11 @@
 package com.townscript.musicapi.dao.songinplaylist;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.townscript.musicapi.model.SongInPlaylist;
 
+@Repository
 public class SongInPlaylistDaoHnateImpl extends HibernateDaoSupport implements SongInPlaylistDao{
 
 	@Override

@@ -4,9 +4,11 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import com.townscript.musicapi.model.Song;
 
+@Repository
 public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
 	@Override
 	public int addToAllSongs(Song song) {
@@ -16,8 +18,8 @@ public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
 
 	@Override
 	public void addToPlaylist(int songId) {
-		String hql = "UPDATE" + Song.class.getName() + "set inplaylist = :inplaylist "  + 
-	             "WHERE songId = :songid";
+		String hql = "UPDATE " + Song.class.getName() + " SET inPlaylist = :inplaylist "  + 
+	             "WHERE id =:songid";
 		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("inplaylist", true);
@@ -27,8 +29,8 @@ public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
 
 	@Override
 	public void upVoteSong(int songId) {
-		String hql = "UPDATE" + Song.class.getName() + "set upVoteSong = upVoteSong + 1 "  + 
-	             "WHERE songId = :songid";
+		String hql = "UPDATE " + Song.class.getName() + " SET thumbsUpCount = thumbsUpCount + 1 "  + 
+	             "WHERE id =:songid";
 		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("songid", songId);
@@ -37,8 +39,8 @@ public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
 
 	@Override
 	public void downVoteSong(int songId) {
-		String hql = "UPDATE" + Song.class.getName() + "set downVoteSong = downVoteSong + 1 "  + 
-	             "WHERE songId = :songid";
+		String hql = "UPDATE " + Song.class.getName() + " SET thumbsDownCount = thumbsDownCount +1 "  + 
+	             "WHERE id =:songid";
 		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("songid", songId);

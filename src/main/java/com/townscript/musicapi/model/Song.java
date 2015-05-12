@@ -20,16 +20,16 @@ public class Song {
 	private String artist;
 	
 	@Column(name = "THUMBS_UP_COUNT")
-	private int thumbsupcount;
+	private int thumbsUpCount;
 
 	@Column(name = "THUMBS_DOWN_COUNT")
-	private int thumbsdowncount;
+	private int thumbsDownCount;
 
 	@Column(name = "SONG_PATH")
 	private String path;
 
 	@Column(name = "IN_PLAYLIST")
-	private boolean inplaylist;
+	private boolean inPlaylist;
 	
 	public int getId() {
 		return id;
@@ -50,16 +50,16 @@ public class Song {
 		this.artist = artist;
 	}
 	public int getThumbsUpCount() {
-		return thumbsupcount;
+		return thumbsUpCount;
 	}
 	public void setThumbsUpCount(int thumbsupcount) {
-		this.thumbsupcount = thumbsupcount;
+		this.thumbsUpCount = thumbsupcount;
 	}
 	public int getThumbsDownCount() {
-		return thumbsdowncount;
+		return thumbsDownCount;
 	}
 	public void setThumbsDownCount(int thumbsdowncount) {
-		this.thumbsdowncount = thumbsdowncount;
+		this.thumbsDownCount = thumbsdowncount;
 	}
 	public String getPath(){
 		return path;
@@ -68,10 +68,10 @@ public class Song {
 		this.path = path;
 	}
 	public boolean getInPlaylist(){
-		return inplaylist;
+		return inPlaylist;
 	}
 	public void setInPlaylist(boolean inplaylist){
-		this.inplaylist = inplaylist;
+		this.inPlaylist = inplaylist;
 	}
 	
 }
