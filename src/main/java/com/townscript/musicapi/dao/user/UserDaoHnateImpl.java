@@ -20,16 +20,21 @@ public class UserDaoHnateImpl extends HibernateDaoSupport implements UserDao{
 
 	@Override
 	public User readUser(int userId) {
-		String queryString = "FROM "+ User.class.getName() +" WHERE id = :userId";
+//		String queryString = "FROM "+ User.class.getName() +" WHERE id = :userId";
+//		
+//		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+//		Query query = session.createQuery(queryString);
+//
+//		query.setParameter("userId", userId);
 		
-		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
-		Query query = session.createQuery(queryString);
-
-		query.setParameter("userId", userId);
+		long currentTime  = System.currentTimeMillis();
+//		List<User> userList = query.list();
+		User user = getHibernateTemplate().load(User.class, userId);
+		long afterTime = System.currentTimeMillis();
 		
-		List<User> userList = query.list();
-		
-		return userList.get(0);
+		System.out.println("Time taken : "+ (afterTime - currentTime));
+		return user;
+		//return userList.get(0);
 	}
 
 	@Override

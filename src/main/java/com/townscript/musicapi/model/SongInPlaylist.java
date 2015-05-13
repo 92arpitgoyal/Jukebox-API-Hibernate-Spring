@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
+@Proxy(lazy=false)
 @Entity
 @Table(name = "PLAYLIST")
 public class SongInPlaylist {
