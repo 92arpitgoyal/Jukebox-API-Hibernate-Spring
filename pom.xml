@@ -1,0 +1,6 @@
+<dependencies>
+    <dependency>
+        <groupId>antlr</groupId>
+        <artifactId>antlr</artifactId>
+        <version>3.0</version>
+    </dependency>
