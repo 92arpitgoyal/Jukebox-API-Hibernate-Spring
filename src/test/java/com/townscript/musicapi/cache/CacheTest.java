@@ -105,11 +105,17 @@ public class CacheTest{
 		Query query = session3.createQuery(queryString);
 		query.setParameter("id", 1);
 		query.setCacheable(true);
+		long currentTimeWithoutQueryCache  = System.currentTimeMillis();
 		List userList = query.list();
+		long afterTimeWithoutQueryCache = System.currentTimeMillis();
+		System.out.println("Time taken : "+ (afterTimeWithoutQueryCache - currentTimeWithoutQueryCache));
 
 		Query query2 = session3.createQuery(queryString);
 		query2.setParameter("id", 1);
 		query2.setCacheable(true);
+		long currentTimeWithQueryCache  = System.currentTimeMillis();
 		List userList2 = query2.list();
+		long afterTimeWithQueryCache = System.currentTimeMillis();
+		System.out.println("Time taken : "+ (afterTimeWithQueryCache - currentTimeWithQueryCache));
 	}
 }
