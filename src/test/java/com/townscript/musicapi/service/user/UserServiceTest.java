@@ -24,7 +24,7 @@ import com.townscript.musicapi.model.User;
 import com.townscript.musicapi.model.UserRowMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/com/townscript/musicapi/test-beans.xml")
+@ContextConfiguration(locations="/com/townscript/musicapi/test-beans.xml")
 public class UserServiceTest {
 	
 	@Autowired

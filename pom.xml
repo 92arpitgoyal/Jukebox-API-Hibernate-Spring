@@ -84,9 +84,9 @@
 		<version>2.5.2</version>
 	</dependency>
 	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-core</artifactId>
-		<version>3.3.1.GA</version>
+		<groupId>spring</groupId>
+		<artifactId>hibernate</artifactId>
+		<version>3.3.1</version>
 	</dependency>
     <dependency>
         <groupId>hibernate</groupId>
@@ -149,6 +149,11 @@
 		<artifactId>springjdbc</artifactId>
 		<version>3.1.1</version>
 	</dependency>
+    <dependency>
+           <groupId>spring</groupId>
+           <artifactId>springtestjar</artifactId>
+           <version>3.0.5</version>
+    </dependency>
 	<dependency>
 		<groupId>spring</groupId>
 		<artifactId>springtx</artifactId>
@@ -184,34 +189,39 @@
         <artifactId>springorm</artifactId>
         <version>3.0.2</version>
     </dependency>
-    <!-- dependency for plugin -->
     <dependency>
-           <groupId>RunSqlScript</groupId>
-           <artifactId>RunSqlScript</artifactId>
-           <version>1.0</version>
-   	</dependency>
+       <groupId>backport</groupId>
+       <artifactId>backportjar</artifactId>
+       <version>3.1</version>
+   </dependency>
+    <!-- dependency for plugin -->
+<!--     <dependency>
+       <groupId>RunSqlScript</groupId>
+       <artifactId>RunSqlScript</artifactId>
+       <version>1.1</version>
+       </dependency> -->
 </dependencies>
 
 
     <build>
       <plugins>
-       <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.2</version>
-           <executions>
-                <execution>
-                    <phase>compile</phase>
-                    <goals>
-                        <goal>java</goal>
-                    </goals>
-                    <configuration>
-                        <mainClass>antdemo.RunSqlScript</mainClass>
-
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
+      <!--  <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>exec-maven-plugin</artifactId>
+           <version>1.2</version>
+          <executions>
+               <execution>
+                   <phase>compile</phase>
+                   <goals>
+                       <goal>java</goal>
+                   </goals>
+                   <configuration>
+                       <mainClass>antdemo.RunSqlScript</mainClass>
+      
+                   </configuration>
+               </execution>
+           </executions>
+       </plugin> -->
 		
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>

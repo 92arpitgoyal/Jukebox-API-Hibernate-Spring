@@ -27,7 +27,7 @@ import com.townscript.musicapi.model.User;
 import com.townscript.musicapi.service.user.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/com/townscript/musicapi/test-beans.xml")
+@ContextConfiguration(locations="/com/townscript/musicapi/test-beans.xml")
 public class CacheTest{
 
 	@Autowired private SessionFactory sessionFactory;

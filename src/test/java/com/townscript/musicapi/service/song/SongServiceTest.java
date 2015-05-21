@@ -27,7 +27,7 @@ import com.townscript.musicapi.service.song.SongService;
 import com.townscript.musicapi.service.song.SongServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/com/townscript/musicapi/test-beans.xml")
+@ContextConfiguration(locations="/com/townscript/musicapi/test-beans.xml")
 public class SongServiceTest {
 	
 /*	public SongServiceTest(){

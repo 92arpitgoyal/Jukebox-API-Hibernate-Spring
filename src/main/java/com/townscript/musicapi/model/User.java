@@ -14,7 +14,7 @@ import org.hibernate.annotations.Proxy;
 @Entity
 @Table(name = "USERS")
 
-@Cache(usage=CacheConcurrencyStrategy.READ_ONLY, region="user")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="user")
 public class User {
 
 	@Id @GeneratedValue
