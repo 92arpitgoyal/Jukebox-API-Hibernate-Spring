@@ -9,7 +9,8 @@
         				http://www.springframework.org/schema/aop 
         				http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
         				http://www.springframework.org/schema/tx 
-        				http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+        				http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
+		default-lazy-init="true">
  	<!-- <context:component-scan base-package="com.townscript.musicapi" /> -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
         destroy-method="close">
@@ -35,7 +36,7 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.cache.use_second_level_cache">true</prop> 
                 <prop key="hibernate.cache.use_query_cache">true</prop> 
-                <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop> 
+                <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop> 
 <!--                 <prop key="hibernate.cache.region.factory_class"> 
      net.sf.ehcache.hibernate.EhCacheRegionFactory</prop> -->
             </props>
@@ -66,7 +67,11 @@
     </bean>
     <bean id="songInPlaylistService" class="com.townscript.musicapi.service.songinplaylist.SongInPlaylistServiceImpl">
     </bean>
-    
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" lazy-init="true">
+              <constructor-arg>
+                      <ref bean="sessionFactory" />
+              </constructor-arg>
+    </bean>
     <tx:annotation-driven transaction-manager="hibernateTransactionManager" />  
     <tx:annotation-driven proxy-target-class="true"/>
     
