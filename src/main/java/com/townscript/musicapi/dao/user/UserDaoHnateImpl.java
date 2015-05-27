@@ -27,7 +27,7 @@ public class UserDaoHnateImpl extends HibernateDaoSupport implements UserDao{
 
 		query.setParameter("userId", userId);
 		List<User> userList = query.list();
-		User user = getHibernateTemplate().load(User.class, userId);
+		//User user = getHibernateTemplate().load(User.class, userId);
 		return userList.get(0);
 	}
 

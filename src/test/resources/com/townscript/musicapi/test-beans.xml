@@ -11,6 +11,8 @@
         				http://www.springframework.org/schema/tx 
         				http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
 		default-lazy-init="true">
+        				
+    <!-- xmlns:p="http://www.springframework.org/schema/p" -->    
  	<!-- <context:component-scan base-package="com.townscript.musicapi" /> -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
         destroy-method="close">
@@ -35,7 +37,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.cache.use_second_level_cache">true</prop> 
-                <prop key="hibernate.cache.use_query_cache">true</prop> 
+                <prop key="hibernate.cache.use_query_cache">true</prop>
                 <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop> 
 <!--                 <prop key="hibernate.cache.region.factory_class"> 
      net.sf.ehcache.hibernate.EhCacheRegionFactory</prop> -->
@@ -48,25 +50,26 @@
         <property name="sessionFactory" ref="sessionFactory" />  
     </bean>  
      
-    <bean id="songDao" class="com.townscript.musicapi.dao.song.SongDaoHnateImpl">
+    <bean id="SongDaoHnateImpl" class="com.townscript.musicapi.dao.song.SongDaoHnateImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    <bean id="songInPlaylistDao" class="com.townscript.musicapi.dao.songinplaylist.SongInPlaylistDaoHnateImpl">
+    <bean id="SongInPlaylistDaoHnateImpl" class="com.townscript.musicapi.dao.songinplaylist.SongInPlaylistDaoHnateImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-    <bean id="userDao" class="com.townscript.musicapi.dao.user.UserDaoHnateImpl">
+    <bean id="UserDaoHnateImpl" class="com.townscript.musicapi.dao.user.UserDaoHnateImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
-    <bean id="songService" class="com.townscript.musicapi.service.song.SongServiceImpl">
-        <property name="songDao" ref="songDao" />
-        <property name="songInPlaylistDao" ref="songInPlaylistDao" />
+    <bean id="SongServiceImpl" class="com.townscript.musicapi.service.song.SongServiceImpl">
+        <property name="songDao" ref="SongDaoHnateImpl" />
+        <property name="songInPlaylistDao" ref="SongInPlaylistDaoHnateImpl" />
     </bean>
-    <bean id="userService" class="com.townscript.musicapi.service.user.UserServiceImpl">
-        <property name="userDao" ref="userDao" />
+    <bean id="UserServiceImpl" class="com.townscript.musicapi.service.user.UserServiceImpl">
+        <property name="userDao" ref="UserDaoHnateImpl" />
     </bean>
-    <bean id="songInPlaylistService" class="com.townscript.musicapi.service.songinplaylist.SongInPlaylistServiceImpl">
+    <bean id="SongInPlaylistService" class="com.townscript.musicapi.service.songinplaylist.SongInPlaylistServiceImpl">
     </bean>
+    
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate" lazy-init="true">
               <constructor-arg>
                       <ref bean="sessionFactory" />

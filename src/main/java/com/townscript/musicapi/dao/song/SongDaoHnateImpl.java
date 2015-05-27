@@ -1,5 +1,7 @@
 package com.townscript.musicapi.dao.song;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -7,6 +9,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import com.townscript.musicapi.model.Song;
+import com.townscript.musicapi.model.User;
 
 @Repository
 public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
@@ -46,6 +49,28 @@ public class SongDaoHnateImpl extends HibernateDaoSupport implements SongDao {
 		query.setParameter("songid", songId);
 		query.executeUpdate();
 		
+	}
+
+	@Override
+	public List<Song> loadAllSongs() {
+		String queryString = "FROM "+ Song.class.getName();
+		
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+		Query query = session.createQuery(queryString);
+		
+		return query.list();
+	}
+
+	@Override
+	public Song loadSong(int songId) {
+		String queryString = "FROM "+ Song.class.getName() +" WHERE id = :songId";
+		
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+		Query query = session.createQuery(queryString);
+		
+		query.setParameter("songId", songId);
+		List<Song> songList = query.list();
+		return songList.get(0);
 	}
 
 }

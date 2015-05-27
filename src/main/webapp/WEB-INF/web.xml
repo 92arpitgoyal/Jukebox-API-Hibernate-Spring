@@ -8,6 +8,11 @@
 	version="2.5">
 
     <display-name>Jukebox</display-name>
+    <servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/add-user.html</url-pattern>
+	</servlet-mapping>
+
    <servlet>
 	<servlet-name>rest</servlet-name>
 	<servlet-class>

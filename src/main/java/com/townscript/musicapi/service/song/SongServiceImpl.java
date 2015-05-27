@@ -1,5 +1,7 @@
 package com.townscript.musicapi.service.song;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,6 +65,16 @@ public class SongServiceImpl implements SongService {
 	@Override
 	public int addSong(Song song) {
 		return songDao.addToAllSongs(song);
+	}
+
+	@Override
+	public List<Song> readSongs() {
+		return songDao.loadAllSongs();
+	}
+
+	@Override
+	public Song readSong(int songId) {
+		return songDao.loadSong(songId);
 	}
 
 }

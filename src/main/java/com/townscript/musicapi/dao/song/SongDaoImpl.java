@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -61,6 +62,19 @@ public class SongDaoImpl implements SongDao {
 			  }, keyHolder);
 
 		return keyHolder.getKey().intValue();
+	}
+
+	@Override
+	public List<Song> loadAllSongs() {
+		//not used
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Song loadSong(int songId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
