@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<title>Add New User</title>
+</head>
+<body>
+
+<div class="container">
+	<form action="http://localhost:8080/ts-task/user/add" method="post">
+	<!-- <div class="form-group">
+		<label for="name">Name</label>
+		<input type="name" class="form-control" id="name" placeholder="John Doe">
+	</div>
+	<div class="form-group">
+	  <label for="email">Email address</label>
+	  <input type="email" class="form-control" id="email" placeholder="john_doe@mail.com">
+	</div>
+	<div class="form-group">
+	  <label for="password">Password</label>
+	  <input type="password" class="form-control" id="password" placeholder="*******">
+	</div> -->
+	<div class="form-group">
+	  <label for="data-json">JSON</label>
+	  <input type="text" class="form-control" id="data-json" name="data-json" placeholder="{}" value="{'name':'arpit goyal', 'email':'arpit@townscript.com', 'qwerty123'}">
+	</div>
+	<button type="submit" class="btn btn-primary btn-block"><strong>Add User</strong></button>
+</form>
+</div>
+</body>
+</html>
